@@ -1,6 +1,7 @@
 package chapter4;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 //List<Integer> intList = new ArrayList<>();
@@ -35,6 +36,15 @@ public class Ex2 {
 		passengerList.add(passenger3);
 		passengerList.add(passenger4);
 		passengerList.add(passenger5);
+		
+		Iterator<Passenger> it = passengerList.iterator();
+		while(it.hasNext()) {
+			Passenger p1 = it.next();
+			System.out.println(p1.getName());
+			System.out.println(p1.getTel());
+			System.out.println(p1.getSeat());
+		}
+		
 //		System.out.println("초기 상태 : " + passengerList);
 //		
 		

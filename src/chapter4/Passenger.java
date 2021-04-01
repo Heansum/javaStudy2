@@ -5,6 +5,8 @@ public class Passenger {
 	
 	private String tel;
 	
+
+
 	private String seat;
 	
 	// 생성자로 초기값 설정
@@ -33,6 +35,7 @@ public class Passenger {
 	}
 	
 	
+	
 	@Override
 	public String toString() {
 		return "이름 : "+ this.name + " 전화번호 : " + this.tel + " 등급 : " + this.seat;
@@ -45,7 +48,31 @@ public class Passenger {
 	}
 	
 	
-	
+	@Override
+	public int hashCode() {
+		// String 클래스에 구현되어있는 HashCode를 적극적으로 활용하면
+		// 쉽고 간편하게 우리에게 필요한 해시 함수를 만들 수 있다.
+		
+		// String 클래스의 hashCode 메서드
+		// 문자열을 해시화함
+		int hashCode = name.hashCode() + tel.hashCode() + seat.hashCode() ;
+		
+		return hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Passenger) {
+			// 매개변수로 전달받은 객체를 Passenger 클래스 타입으로 변환할 수 있다면
+			Passenger target = (Passenger) obj;
+			
+			return this.hashCode() == obj.hashCode();
+		} else {
+			// 매개변수로 전달받은 객체를 Passenger 클래스 타입으로 변환할 수 없다면
+			// false
+			return false;
+		}
+	}
 	
 	
 	
