@@ -1,0 +1,52 @@
+1 : package chapter8;
+2 : 
+3 : import java.io.BufferedReader;
+4 : import java.io.BufferedWriter;
+5 : import java.io.FileNotFoundException;
+6 : import java.io.FileReader;
+7 : import java.io.FileWriter;
+8 : import java.io.IOException;
+9 : 
+10 : public class Ex9 {
+11 : 	public static void main(String[] args) {
+12 : 		FileReader fr = null;
+13 : 		BufferedReader br = null;
+14 : 		
+15 : 		FileWriter fw = null;
+16 : 		BufferedWriter bw = null;
+17 : 		
+18 : 		try {
+19 : 			fr = new FileReader("Ex9.java");
+20 : 			br = new BufferedReader(fr);
+21 : 		
+22 : 			fw = new FileWriter("Ex9.bak");
+23 : 			bw = new BufferedWriter(fw);
+24 : 			
+25 : 			String line = "";
+26 : 			for(int i=1; line != null; i++) {
+27 : 				line = br.readLine();
+28 : 				
+29 : 				bw.write(i + " : " + line);
+30 : 			}
+31 : 		} catch (FileNotFoundException e) {
+32 : 			e.printStackTrace();
+33 : 		} catch (IOException e) {
+34 : 			e.printStackTrace();
+35 : 		} finally {
+36 : 			try {
+37 : 				br.close();
+38 : 			} catch (IOException e) {
+39 : 				e.printStackTrace();
+40 : 			}
+41 : 			
+42 : 			try {
+43 : 				bw.close();
+44 : 			} catch (IOException e) {
+45 : 				e.printStackTrace();
+46 : 			}
+47 : 			
+48 : 		}
+49 : 		
+50 : 		
+51 : 	}
+52 : }
